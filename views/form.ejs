@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>File Converter</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef3f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 420px;
+    }
+    h2 { text-align: center; color: #2E8B57; margin-bottom: 20px; }
+    form { display: flex; flex-direction: column; gap: 15px; }
+    input, select, button {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+    button {
+      background: #2E8B57;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: #256e45; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>File Converter</h2>
+    <form action="/convert" method="POST" enctype="multipart/form-data">
+      <label>Select Files:</label>
+      <input type="file" name="files" multiple required>
+
+      <label>Conversion Type:</label>
+      <select name="type" required>
+        <option value="">-- Choose --</option>
+        <option value="docx-to-pdf">DOCX → PDF</option>
+        <option value="png-to-pdf">PNG → PDF</option>
+        <option value="pdf-to-png">PDF → PNG</option>
+      </select>
+
+      <button type="submit">Convert</button>
+    </form>
+  </div>
+</body>
+</html>
